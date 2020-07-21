@@ -1,0 +1,140 @@
+// https://github.com/mvo5/unattended-upgrades
+
+// Allowed-Origins is a simple list of patterns of the form "origin:archive".
+// Unattended-Upgrade::Allowed-Origins {
+//    "${distro_id} ${distro_codename}-security";
+    //      "${distro_id} ${distro_codename}-updates";
+    //      "${distro_id} ${distro_codename}-proposed";
+    //      "${distro_id} ${distro_codename}-backports";
+// };
+
+// Origins-Pattern allows you to give a list of (glob-style) patterns
+// to match against.
+Unattended-Upgrade::Origins-Pattern {
+    "origin=*";
+};
+
+// No packages that match the regular expressions in this list will
+// be marked for upgrade. If a package A has a blacklisted package B
+// as a dependency then both packages A and B will not be upgraded.
+// Note that it's a list of regular expressions, so you may need to
+// escape special characters like "+" as "\+".
+Unattended-Upgrade::Package-Blacklist {
+    "aerospike.*";
+    "cassandra.*";
+    "ceph.*";
+    "clickhouse.*";
+    "consul.*";
+    "couchbase.*";
+    "couchdb.*";
+    "docker.*";
+    "elasticsearch.*";
+    "etcd.*";
+    "glusterfs.*";
+    "influxdb.*";
+    "kafka.*";
+    "leofs.*";
+    "memcached.*";
+    ".*mq.*";
+    "mongo.*";
+    "mysql.*";
+    "php$";
+    "php-.*";
+    "postgresql.*";
+    "prometheus.*";
+    "redis.*";
+    "rethinkdb.*";
+    "riak.*";
+    "tarantool.*";
+    "zabbix.*";
+    "zookeeper.*";
+};
+
+// Only packages that match the regular expressions in this list will be
+// marked for upgrade. By default dependencies of whitelisted packages
+// are allowed. This can be changed to only ever allow whitelisted packages
+// with the Unattended-Upgrade::Package-Whitelist-Strict boolean option.
+// Unattended-Upgrade::Package-Blacklist still applies, thus blacklisted
+// packages covered by the whitelist will still not be upraded nor will
+// be installed or upgraded as dependencies of whitelisted packages.
+// Unattended-Upgrade::Package-Whitelist {};
+
+// When set, allow only packages in Unattended-Upgrade::Package-Whitelist
+// to be upgraded. This means that you also need to list all the dependencies
+// of a whitelisted package, e.g. if A depends on B and only A is whitelisted,
+// it will be held back.
+// Unattended-Upgrade::Package-Whitelist-Strict "false";
+
+// This option will controls whether the development release of Ubuntu will be
+// upgraded automatically.
+Unattended-Upgrade::DevRelease "false";
+
+// This option allows you to control if on a unclean dpkg exit
+// unattended-upgrades will automatically run 
+//   dpkg --force-confold --configure -a
+// The default is true, to ensure updates keep getting installed
+Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+
+// Split the upgrade into the smallest possible chunks so that
+// they can be interrupted with SIGTERM. This makes the upgrade
+// a bit slower but it has the benefit that shutdown while a upgrade
+// is running is possible (with a small delay)
+Unattended-Upgrade::MinimalSteps "false";
+
+// Install all unattended-upgrades when the machine is shutting down
+// instead of doing it in the background while the machine is running
+// This will (obviously) make shutdown slower
+Unattended-Upgrade::InstallOnShutdown "false";
+
+// Send email to this address for problems or packages upgrades
+// If empty or unset then no email is sent, make sure that you
+// have a working mail setup on your system. A package that provides
+// 'mailx' must be installed. E.g. "user@example.com"
+Unattended-Upgrade::Mail "root";
+
+// Use the specified value in the "From" field of outgoing mails.
+// Unattended-Upgrade::Sender "server@example.com";
+
+// Set this value to "true" to get emails only on errors. Default
+// is to always send a mail if Unattended-Upgrade::Mail is set
+Unattended-Upgrade::MailOnlyOnError "true";
+
+// Remove unused automatically installed kernel-related packages
+// (kernel images, kernel headers and kernel version locked tools).
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";
+
+// Do automatic removal of new unused dependencies after the upgrade
+// (equivalent to apt-get autoremove)
+Unattended-Upgrade::Remove-Unused-Dependencies "false";
+
+// Automatically reboot *WITHOUT CONFIRMATION*
+//  if the file /var/run/reboot-required is found after the upgrade 
+Unattended-Upgrade::Automatic-Reboot "false";
+
+// If automatic reboot is enabled and needed, reboot at the specific
+// time instead of immediately
+//  Default: "now"
+//Unattended-Upgrade::Automatic-Reboot-Time "02:00";
+
+// Use apt bandwidth limit feature, this example limits the download
+// speed to 70kb/sec
+//Acquire::http::Dl-Limit "70";
+
+// Set the days of the week that updates should be applied.
+// The days can be specified as localized abbreviated or full names.
+// Or as integers where "0" is Sunday, "1" is Monday etc.
+// Unattended-Upgrade::Update-Days {"Mon";"Fri"};
+
+// Enable logging to syslog. Default is False
+// Unattended-Upgrade::SyslogEnable "false";
+
+// Specify syslog facility. Default is daemon
+// Unattended-Upgrade::SyslogFacility "daemon";
+
+// Download and install upgrades only on AC power
+// (i.e. skip or gracefully stop updates on battery)
+Unattended-Upgrade::OnlyOnACPower "true";
+
+// Download and install upgrades only on non-metered connection
+// (i.e. skip or gracefully stop updates on a metered connection)
+Unattended-Upgrade::Skip-Updates-On-Metered-Connections "true";
