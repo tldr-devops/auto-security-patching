@@ -11,6 +11,15 @@ I added into stop list databases and services like docker, which restart can ser
 Time track:
 - [Filipp Frizzy](https://github.com/Friz-zy/) 2.5h
 
+## Support
+
+You can support this or any other of my projects
+* by sending your PRs with improving my configs or english texts 😂
+* by sending me donations:
+  - [donationalerts.com/r/filipp_frizzy](https://www.donationalerts.com/r/filipp_frizzy)
+  - ETH 0xCD9fC1719b9E174E911f343CA2B391060F931ff7
+  - BTC bc1q8fhsj24f5ncv3995zk9v3jhwwmscecc6w0tdw3
+
 ## DEB based
 
 1. `apt update && apt install unattended-upgrades`
