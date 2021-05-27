@@ -31,6 +31,7 @@ Unattended-Upgrade::Package-Blacklist {
     "elasticsearch.*";
     "etcd.*";
     "glusterfs.*";
+    "grub.*";
     "influxdb.*";
     "kafka.*";
     "leofs.*";

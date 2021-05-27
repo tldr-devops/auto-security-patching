@@ -41,3 +41,6 @@ APT::Periodic::Unattended-Upgrade "0";
 # install updates on the other half of PROD
 10 12 * * 4 /usr/bin/unattended-upgrades
 ```
+
+## RPM based
+https://serverfault.com/questions/567195/how-can-i-exclude-a-package-from-yum-cron-but-not-from-manual-yum-upgrade
