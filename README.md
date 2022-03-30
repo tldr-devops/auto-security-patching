@@ -1,8 +1,11 @@
 # auto-updates
+
+[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Presidential_Standard_of_Belarus_%28fictional%29.svg/240px-Presidential_Standard_of_Belarus_%28fictional%29.svg.png" width="20" height="20" alt="Voices From Belarus" />](https://voicesfrombelarus.org/) [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/badges/StandWithUkraine.svg)](https://vshymanskyy.github.io/StandWithUkraine)
+
 Apply updates to your servers automatically and securely
 
 Warning: I'm living in Belarus - country between EU and Russia. [And today we are fighting for our freedom against 'the last dictator of the Europe'](https://www.euronews.com/2020/06/25/belarus-is-no-longer-scared-of-lukashenko-europe-s-last-dictator-will-fall-view).
-So I can't guarantee that I'll be able to maintain this repo scrupulously this summer. Sorry, guys
+So I can't guarantee that I'll be able to maintain this repo scrupulously. Sorry, guys
 
 **Motivation**: I manage hundreds of hosts and I know that manually patching is hard even with automation like ansible or puppet or whatever. Infrastructure can work for months or even years without properly security updates. Docker containers with planned rebuilding and delivery can solve the problem, but most of the internet still work not in docker :) So in my opinion limited automatic updates with monitoring, notifications and canary tests on the stage environment is the less evil, than unpatched servers :)
 
